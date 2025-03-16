@@ -3,6 +3,7 @@ body {
             font-family: Arial, sans-serif;
             background: linear-gradient(120deg, #3E4EB8, #55E6C1);
             color: white;
+            padding-left: 1%;
         }
         header {
             position: sticky;

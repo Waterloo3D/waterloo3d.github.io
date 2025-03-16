@@ -75,6 +75,25 @@
             padding: 1em;
             margin-top: 20px;
         }
+        #panier {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #panier table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        #panier table th, #panier table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        #panier h2 {
+            margin-top: 0;
+        }
     </style>
 </head>
 <body>
@@ -85,33 +104,86 @@
         <a href="#accueil">Accueil</a>
         <a href="#produits">Produits</a>
         <a href="#contact">Contact</a>
+        <a href="#panier" onclick="showPanier()">Panier</a>
     </nav>
     <div class="container">
         <h2 id="produits">Nos Produits</h2>
         <div class="product-grid">
-            <!-- Product 1 -->
             <div class="product">
                 <img src="product1.jpg" alt="Produit 1">
                 <h3>Produit 1</h3>
                 <p>Une description détaillée du produit 1.</p>
-                <button onclick="addToCart('Produit 1')">Ajouter au panier</button>
+                <button onclick="addToCart('Produit 1', 29.99)">Ajouter au panier</button>
             </div>
-            <!-- Product 2 -->
             <div class="product">
                 <img src="product2.jpg" alt="Produit 2">
                 <h3>Produit 2</h3>
                 <p>Une description détaillée du produit 2.</p>
-                <button onclick="addToCart('Produit 2')">Ajouter au panier</button>
+                <button onclick="addToCart('Produit 2', 49.99)">Ajouter au panier</button>
             </div>
-            <!-- Add more products as needed -->
         </div>
+    </div>
+    <div id="panier" class="container">
+        <h2>Votre Panier</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Quantité</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="panier-items">
+                <!-- Items will be dynamically added here -->
+            </tbody>
+        </table>
+        <p><strong>Total Général: $<span id="total-general">0.00</span></strong></p>
+        <button onclick="hidePanier()">Fermer</button>
     </div>
     <footer>
         <p>&copy; 2025 Waterloo3D. Tous droits réservés.</p>
     </footer>
     <script>
-        function addToCart(productName) {
+        let cart = [];
+
+        function addToCart(productName, productPrice) {
+            const existingItem = cart.find(item => item.name === productName);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
             alert(productName + " a été ajouté au panier !");
+            updatePanier();
+        }
+
+        function updatePanier() {
+            const panierItems = document.getElementById("panier-items");
+            panierItems.innerHTML = "";
+            let total = 0;
+
+            cart.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>$${item.price.toFixed(2)}</td>
+                    <td>${item.quantity}</td>
+                    <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                `;
+                panierItems.appendChild(row);
+                total += item.price * item.quantity;
+            });
+
+            document.getElementById("total-general").innerText = total.toFixed(2);
+        }
+
+        function showPanier() {
+            document.getElementById("panier").style.display = "block";
+        }
+
+        function hidePanier() {
+            document.getElementById("panier").style.display = "none";
         }
     </script>
 </body>

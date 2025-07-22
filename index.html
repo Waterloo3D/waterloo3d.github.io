@@ -48,24 +48,6 @@
             margin-top: 20px;
         }
     </style>
-    <script>
-        const items = document.querySelectorAll('.carousel-item');
-        let current = 0;
-    
-        function showItem(index) {
-            items.forEach((item, i) => {
-                item.style.opacity = i === index ? '1' : '0';
-            });
-        }
-    
-        function nextItem() {
-            current = (current + 1) % items.length;
-            showItem(current);
-        }
-    
-        showItem(current); // show first item
-        setInterval(nextItem, 5000); // change every 5 seconds
-    </script>
 </head>
 <body>
     <header>
@@ -78,11 +60,6 @@
     <div class="hero-section">
         <h1>Bienvenue à Waterloo 3D</h1>
         <p>Trouvez ce qu'on vend <a href="offre.html">ici</a>!</p>
-    </div>
-    <div class="carousel-container">
-        <iframe class="carousel-item" src="https://sketchfab.com/models/5d259b75e21f4744b5caecfb8fb21ad7/embed?autostart=1&transparent=1" title="Item 1" frameborder="0" allowfullscreen></iframe>
-        <iframe class="carousel-item" src="https://sketchfab.com/models/b9264769bc5845138497aed1d5993033/embed?autostart=1&transparent=1" title="Item 2" frameborder="0" allowfullscreen></iframe>
-        <iframe class="carousel-item" src="https://sketchfab.com/models/0ab2039007fa4b219f3efcd54bde3d9f/embed?autostart=1&transparent=1" title="Item 3" frameborder="0" allowfullscreen></iframe>
     </div>
 </body>
 </html>

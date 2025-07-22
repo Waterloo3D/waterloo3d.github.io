@@ -61,7 +61,7 @@ nav a:hover {
     padding: 0;
 }
 
-.content ul summary {
+.content ul li {
     background: #eee;
     padding: 10px;
     margin: 5px 0;

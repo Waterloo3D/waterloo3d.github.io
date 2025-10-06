@@ -1,5 +1,12 @@
 /* General styling */
 body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #041d03, #062926, #431072);
+            color: white;
+        }
+        
+body2 {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(120deg, #e6e6e6, #f3f3f3);

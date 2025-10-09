@@ -108,6 +108,7 @@ nav a:hover {
     border-radius: 25px;
     width: 48%;
     height: 48%;
+    text-decoration: none;
 };
 .product img {
     width: 40%;

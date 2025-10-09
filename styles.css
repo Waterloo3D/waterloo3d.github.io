@@ -112,10 +112,13 @@ nav a:hover {
 .product img {
     width: 40%;
     height: 40%;
+    text-decoration: none;
 };
 .product p {
     font-size: 5%;
+    text-decoration: none;
 };
 .price {
     font-size: 1.7%;
+    text-decoration: none;
 }

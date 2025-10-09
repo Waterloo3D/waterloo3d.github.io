@@ -88,7 +88,6 @@ nav a:hover {
     margin-top: 20px;
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
     nav {
         flex-direction: column;

@@ -102,4 +102,20 @@ nav a:hover {
     .hero-section p, .content p {
         font-size: 1rem;
     }
+};
+
+.product {
+    border-radius: 25px;
+    width: 48%;
+    height: 48%;
+};
+.product img {
+    width: 40%;
+    height: 40%;
+};
+.product p {
+    font-size: 5%;
+};
+.price {
+    font-size: 1.7%;
 }

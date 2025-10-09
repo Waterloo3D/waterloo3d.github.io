@@ -107,18 +107,18 @@ nav a:hover {
     border-radius: 25px;
     width: 48%;
     height: 48%;
-    text-decoration: none;
+    text-decoration: none
 };
 .product img {
     width: 40%;
     height: 40%;
-    text-decoration: none;
+    text-decoration: none
 };
 .product p {
     font-size: 5%;
-    text-decoration: none;
+    text-decoration: none
 };
 .price {
     font-size: 1.7%;
-    text-decoration: none;
+    text-decoration: none
 }

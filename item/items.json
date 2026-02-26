@@ -9,9 +9,8 @@
     "sketchfab_id": "5d259b75e21f4744b5caecfb8fb21ad7",
     "details": {
       "dimensions": "Taille moyenne (à personnaliser)",
-      "matériau": "Plastique PLA ou autre matériau 3D",
-      "couleurs_disponibles": ["Blanc", "Noir", "Bleu", "Vert"],
-      "personnalisation": true
+      "matériau": "Plastique Hyper-PLA",
+      "couleurs_disponibles": ["Blanc", "Noir", "Bleu", "Vert", "Rouge", "Dégradé de couleurs pastels"]
     },
     "packages": [
       {
@@ -30,9 +29,8 @@
     "sketchfab_id": "a2be981ce94d42cd83ba0e6a637f8ae8",
     "details": {
       "dimensions": "Différentes tailles disponibles",
-      "matériau": "Plastique PLA ou autre matériau 3D",
-      "emboîtables": true,
-      "personnalisation": "Logos et textes possibles"
+      "matériau": "Plastique Hyper-PLA",
+      "couleurs_disponibles": ["Blanc", "Noir", "Bleu", "Vert", "Rouge", "Dégradé de couleurs pastels"]
     },
     "packages": [
       {
@@ -60,9 +58,10 @@
     "description": "Personnalisez vos objets avec des étiquettes uniques imprimées en 3D. Parfait pour identifier vos affaires ou créer des étiquettes décoratives.",
     "images": ["IMG_1182.PNG"],
     "details": {
-      "dimensions": "Petites et légères",
-      "matériau": "Plastique PLA",
-      "personnalisation": "Texte entièrement personnalisable"
+      "dimensions": "Différentes tailles disponibles",
+      "matériau": "Plastique Hyper-PLA",
+      "couleurs_disponibles": ["Blanc", "Noir", "Bleu", "Vert", "Rouge", "Dégradé de couleurs pastels"],
+      "personnalisation": "Texte à votre choix, jusqu'à 8 caractères"
     },
     "packages": [
       {
@@ -93,8 +92,7 @@
     "details": {
       "nombre": "8 signets (4 petits + 4 grands)",
       "matériau": "Plastique PLA",
-      "couleurs": "Assortis",
-      "personnalisation": true
+      "couleurs": [ "Blanc", "Noir", "Bleu", "Vert", "Rouge", "Dégradé de couleurs pastels", "(Paquet en une couleur.)"]
     },
     "packages": [
       {
@@ -115,8 +113,7 @@
     "details": {
       "dimensions": "Mini (parfait pour porte-clés)",
       "matériau": "Plastique PLA",
-      "poids": "Très léger",
-      "personnalisation": "Texte sur la couverture possible"
+      "poids": "Très léger"
     },
     "packages": [
       {

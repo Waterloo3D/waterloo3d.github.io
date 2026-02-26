@@ -1,5 +1,5 @@
 /* ========================================
-   WATERLOO 3D - OCEAN THEME
+   WATERLOO 3D - OCEAN THEME (BLUE EDITION)
    Shared Stylesheet
    ======================================== */
 
@@ -21,7 +21,7 @@
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-15px); }
 }
 
 @keyframes glow {
@@ -29,9 +29,31 @@
     50% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 136, 0.6); }
 }
 
+@keyframes borderGlow {
+    0%, 100% {
+        border-color: rgba(0, 150, 255, 0.5);
+        box-shadow: 0 0 15px rgba(0, 150, 255, 0.3), inset 0 0 15px rgba(0, 150, 255, 0.1);
+    }
+    50% {
+        border-color: rgba(0, 255, 200, 0.9);
+        box-shadow: 0 0 30px rgba(0, 255, 200, 0.6), inset 0 0 20px rgba(0, 255, 200, 0.2);
+    }
+}
+
+@keyframes borderGlowIntense {
+    0%, 100% {
+        border-color: rgba(30, 144, 255, 0.6);
+        box-shadow: inset 0 0 20px rgba(30, 144, 255, 0.2), 0 0 20px rgba(30, 144, 255, 0.3);
+    }
+    50% {
+        border-color: rgba(0, 200, 255, 0.95);
+        box-shadow: inset 0 0 30px rgba(0, 200, 255, 0.4), 0 0 40px rgba(0, 200, 255, 0.6);
+    }
+}
+
 @keyframes wave {
     0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(10px); }
+    50% { transform: translateX(8px); }
 }
 
 @keyframes fadeIn {
@@ -42,7 +64,18 @@
 @keyframes slideInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
     }
     to {
         opacity: 1;
@@ -65,16 +98,25 @@
     to { transform: rotate(360deg); }
 }
 
+@keyframes neon-flicker {
+    0%, 100% {
+        text-shadow: 0 0 10px #00d4ff, 0 0 20px #0088ff, 0 0 30px #0066ff;
+    }
+    50% {
+        text-shadow: 0 0 20px #00d4ff, 0 0 40px #0088ff, 0 0 60px #0066ff, 0 0 80px #0044ff;
+    }
+}
+
 /* ========================================
    GLOBAL BODY STYLING
    ======================================== */
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0a1128 0%, #1a4d6d 25%, #0d7377 50%, #14919b 75%, #2c6e7f 100%);
+    background: linear-gradient(135deg, #001a4d 0%, #003d99 25%, #0055cc 50%, #0077ff 75%, #003d99 100%);
     background-size: 400% 400%;
-    animation: oceanFlow 15s ease infinite;
-    color: white;
+    animation: oceanFlow 20s ease infinite;
+    color: #e0f2ff;
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -86,37 +128,42 @@ body {
 header {
     position: sticky;
     top: 0;
-    background: linear-gradient(180deg, rgba(13, 115, 119, 0.95) 0%, rgba(20, 145, 155, 0.9) 100%);
-    backdrop-filter: blur(10px);
-    padding: 20px 0;
+    background: linear-gradient(180deg, rgba(0, 50, 150, 0.98) 0%, rgba(0, 100, 200, 0.95) 100%);
+    backdrop-filter: blur(15px);
+    padding: 25px 0;
     color: white;
     z-index: 1000;
-    box-shadow: 0 8px 32px rgba(0, 255, 200, 0.2);
+    box-shadow: 0 15px 50px rgba(0, 150, 255, 0.4);
+    border-bottom: 3px solid rgba(0, 200, 255, 0.5);
+    animation: slideInDown 0.8s ease;
 }
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 nav a {
     text-decoration: none;
     color: white;
-    background: linear-gradient(135deg, #00d4ff, #00ff88);
-    padding: 12px 28px;
+    background: linear-gradient(135deg, #0077ff, #00bfff);
+    padding: 14px 35px;
     border-radius: 50px;
-    transition: all 0.3s ease;
-    font-weight: 600;
-    font-size: 1rem;
-    animation: float 3s ease-in-out infinite;
+    transition: all 0.4s ease;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border: 2px solid rgba(0, 200, 255, 0.4);
+    animation: float 3.5s ease-in-out infinite, borderGlow 3s ease infinite;
 }
 
 nav a:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 255, 200, 0.4);
-    background: linear-gradient(135deg, #00ff88, #00d4ff);
+    transform: translateY(-8px) scale(1.08);
+    box-shadow: 0 15px 50px rgba(0, 200, 255, 0.7), inset 0 0 20px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #00bfff, #0077ff);
+    border-color: rgba(0, 255, 200, 0.8);
 }
 
 /* ========================================
@@ -124,36 +171,40 @@ nav a:hover {
    ======================================== */
 
 .content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 60px 30px;
+    padding: 80px 40px;
 }
 
 .content h2 {
-    font-size: 3rem;
-    margin-bottom: 30px;
-    background: linear-gradient(135deg, #00ffff, #00ff88);
+    font-size: 3.8rem;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #0088ff, #00d4ff, #00ffff);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: slideInUp 0.8s ease;
+    animation: slideInUp 0.8s ease, shimmer 4s ease infinite;
     font-weight: 900;
+    text-align: center;
+    letter-spacing: 2px;
 }
 
 .content h3 {
-    font-size: 1.8rem;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    color: #ffff00;
+    font-size: 2.2rem;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    color: #00d4ff;
     animation: slideInUp 1s ease;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    letter-spacing: 1px;
 }
 
 .content p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin: 15px 0;
-    color: #e0ffff;
-    animation: slideInUp 1.4s ease;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    margin: 18px 0;
+    color: #b3e0ff;
 }
 
 /* ========================================
@@ -162,53 +213,59 @@ nav a:hover {
 
 .contact-box,
 .info-box {
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 136, 0.1));
-    border: 2px solid rgba(0, 255, 200, 0.5);
-    border-radius: 20px;
-    padding: 30px;
-    margin: 25px 0;
-    backdrop-filter: blur(10px);
-    animation: slideInUp 1.2s ease;
-    transition: all 0.4s ease;
+    background: linear-gradient(135deg, rgba(0, 70, 150, 0.2), rgba(0, 120, 200, 0.2));
+    border: 3px solid rgba(0, 150, 255, 0.5);
+    border-radius: 30px;
+    padding: 40px;
+    margin: 30px 0;
+    backdrop-filter: blur(15px);
+    animation: slideInUp 1.2s ease, borderGlow 3.5s ease infinite;
+    transition: all 0.5s ease;
+    position: relative;
 }
 
 .contact-box:hover,
 .info-box:hover {
-    border-color: rgba(0, 255, 200, 0.9);
-    box-shadow: 0 15px 50px rgba(0, 255, 200, 0.3);
-    transform: translateY(-5px);
+    border-color: rgba(0, 255, 200, 0.95);
+    box-shadow: 0 25px 80px rgba(0, 200, 255, 0.5), inset 0 0 40px rgba(0, 200, 255, 0.15);
+    transform: translateY(-8px);
+    background: linear-gradient(135deg, rgba(0, 100, 200, 0.3), rgba(0, 150, 255, 0.3));
 }
 
 .price-box {
-    background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(255, 255, 0, 0.1));
-    border-left: 4px solid #00ff88;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    animation: pulse 2s ease-in-out infinite;
+    background: linear-gradient(135deg, rgba(0, 100, 200, 0.25), rgba(0, 150, 255, 0.25));
+    border: 3px solid rgba(30, 144, 255, 0.6);
+    padding: 30px;
+    margin: 25px 0;
+    border-radius: 20px;
+    animation: borderGlowIntense 3s ease infinite;
+    box-shadow: inset 0 0 20px rgba(0, 150, 255, 0.2);
 }
 
 .cash-only {
-    background: linear-gradient(135deg, #ff6b6b, #ff4757);
-    padding: 20px;
-    border-radius: 15px;
-    margin-top: 30px;
-    font-size: 1.2rem;
+    background: linear-gradient(135deg, #0033cc, #0055ff);
+    padding: 30px;
+    border-radius: 25px;
+    margin-top: 40px;
+    font-size: 1.3rem;
     font-weight: bold;
     text-align: center;
-    animation: slideInUp 1.6s ease;
-    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    animation: slideInUp 1.6s ease, neon-flicker 2s ease-in-out infinite;
+    box-shadow: 0 15px 50px rgba(0, 100, 255, 0.6);
+    border: 3px solid rgba(0, 200, 255, 0.6);
+    letter-spacing: 1px;
 }
 
 .coming-soon {
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 71, 135, 0.2));
-    border-left: 4px solid #ff6b6b;
-    padding: 20px;
-    border-radius: 10px;
-    color: #ffb3b3;
+    background: linear-gradient(135deg, rgba(0, 80, 180, 0.3), rgba(0, 120, 220, 0.3));
+    border-left: 5px solid #0088ff;
+    border-radius: 15px;
+    padding: 25px;
+    color: #00d4ff;
     font-size: 1.2rem;
-    margin: 20px 0;
+    margin: 25px 0;
     animation: slideInUp 1.8s ease;
+    box-shadow: inset 0 0 15px rgba(0, 136, 255, 0.2);
 }
 
 /* ========================================
@@ -216,23 +273,25 @@ nav a:hover {
    ======================================== */
 
 .email-link {
-    color: #ffff00;
+    color: #00ffff;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
-    border-bottom: 2px solid #ffff00;
+    border-bottom: 2px solid #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
 }
 
 .email-link:hover {
-    color: #00ffff;
-    border-bottom: 2px solid #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    color: #00d4ff;
+    border-bottom: 3px solid #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+    transform: scale(1.05);
 }
 
 .highlight {
-    color: #ffff00;
+    color: #00ffff;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
 /* ========================================
@@ -241,64 +300,70 @@ nav a:hover {
 
 .hero-section {
     text-align: center;
-    padding: 80px 40px;
-    animation: fadeIn 1s ease-in;
+    padding: 100px 50px;
+    animation: fadeIn 1.2s ease-in;
 }
 
 .hero-section h1 {
-    font-size: 4.5rem;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #00ffff, #00ff88, #ffff00, #00ffff);
+    font-size: 5.5rem;
+    margin-bottom: 25px;
+    background: linear-gradient(135deg, #0088ff, #00d4ff, #00ffff, #0088ff);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: glow 3s ease-in-out infinite;
-    text-shadow: 0 0 30px rgba(0, 255, 200, 0.3);
+    animation: neon-flicker 2s ease-in-out infinite;
     font-weight: 900;
+    letter-spacing: 3px;
 }
 
 .hero-section p {
-    font-size: 1.5rem;
-    margin: 20px 0;
-    color: #e0ffff;
-    animation: wave 2s ease-in-out infinite;
+    font-size: 1.7rem;
+    margin: 25px 0;
+    color: #00d4ff;
+    animation: wave 2.5s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    font-weight: 600;
 }
 
 .hero-section a {
-    color: #ffff00;
+    color: #00ffff;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
-    border-bottom: 2px solid #ffff00;
+    border-bottom: 3px solid #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
 }
 
 .hero-section a:hover {
-    color: #00ffff;
-    border-bottom: 2px solid #00ffff;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    color: #00d4ff;
+    border-bottom: 3px solid #00d4ff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+    transform: scale(1.05);
 }
 
 .media-container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    margin-top: 50px;
-    animation: fadeIn 1.5s ease-in;
+    gap: 50px;
+    margin-top: 70px;
+    animation: fadeIn 1.8s ease-in;
 }
 
 .media-container img {
     max-width: 100%;
     height: auto;
-    border-radius: 20px;
-    box-shadow: 0 15px 50px rgba(0, 255, 200, 0.4);
-    transition: all 0.4s ease;
-    border: 3px solid rgba(0, 255, 136, 0.6);
+    border-radius: 25px;
+    box-shadow: 0 25px 70px rgba(0, 150, 255, 0.5);
+    transition: all 0.5s ease;
+    border: 4px solid rgba(0, 150, 255, 0.6);
+    animation: borderGlow 3.5s ease infinite;
 }
 
 .media-container img:hover {
-    transform: scale(1.02) translateY(-10px);
-    box-shadow: 0 25px 70px rgba(0, 255, 200, 0.6);
+    transform: scale(1.04) translateY(-15px);
+    box-shadow: 0 40px 100px rgba(0, 200, 255, 0.8);
+    border-color: rgba(0, 255, 200, 0.95);
 }
 
 /* ========================================
@@ -307,76 +372,85 @@ nav a:hover {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 35px;
-    margin: 50px 0;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 45px;
+    margin: 60px 0;
     animation: slideInUp 1.2s ease;
 }
 
 .product-card {
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 136, 0.1));
-    border: 2px solid rgba(0, 255, 200, 0.5);
-    border-radius: 20px;
-    padding: 30px;
+    background: linear-gradient(135deg, rgba(0, 70, 150, 0.2), rgba(0, 120, 200, 0.2));
+    border: 3px solid rgba(0, 150, 255, 0.5);
+    border-radius: 25px;
+    padding: 40px;
     text-align: center;
-    backdrop-filter: blur(10px);
-    transition: all 0.4s ease;
-    animation: slideInUp 1.4s ease;
+    backdrop-filter: blur(15px);
+    transition: all 0.5s ease;
+    animation: slideInUp 1.4s ease, borderGlowIntense 3.5s ease infinite;
     cursor: pointer;
+    position: relative;
 }
 
 .product-card:hover {
-    border-color: rgba(0, 255, 200, 0.9);
-    box-shadow: 0 20px 60px rgba(0, 255, 200, 0.4);
-    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(0, 255, 200, 0.95);
+    box-shadow: 0 30px 90px rgba(0, 200, 255, 0.6), inset 0 0 40px rgba(0, 200, 255, 0.15);
+    transform: translateY(-15px) scale(1.03);
+    background: linear-gradient(135deg, rgba(0, 100, 200, 0.35), rgba(0, 150, 255, 0.35));
 }
 
 .product-card h3 {
-    font-size: 1.8rem;
-    color: #00ffff;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    color: #00d4ff;
+    margin-bottom: 20px;
     animation: slideInUp 1.6s ease;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+    font-weight: 800;
 }
 
 .product-card .price {
-    font-size: 1.5rem;
-    color: #ffff00;
-    font-weight: bold;
-    margin: 15px 0;
-    text-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+    font-size: 1.8rem;
+    color: #00ffff;
+    font-weight: 900;
+    margin: 20px 0;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
 .product-card p {
-    color: #e0ffff;
-    line-height: 1.6;
-    margin: 10px 0;
-    font-size: 1rem;
+    color: #b3e0ff;
+    line-height: 1.7;
+    margin: 12px 0;
+    font-size: 1.05rem;
 }
 
 .category-header {
-    font-size: 2.2rem;
-    color: #ffff00;
-    margin-top: 50px;
-    margin-bottom: 30px;
-    text-align: left;
+    font-size: 2.8rem;
+    color: #00d4ff;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    text-align: center;
     animation: slideInUp 1s ease;
-    text-shadow: 0 0 20px rgba(255, 255, 0, 0.4);
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
 .iframe-container {
     width: 100%;
-    max-width: 500px;
-    height: 400px;
-    margin: 20px auto;
-    border-radius: 15px;
+    max-width: 550px;
+    height: 450px;
+    margin: 30px auto;
+    border-radius: 25px;
     overflow: hidden;
-    border: 3px solid rgba(0, 255, 200, 0.5);
-    transition: all 0.4s ease;
+    border: 4px solid rgba(0, 150, 255, 0.5);
+    transition: all 0.5s ease;
+    box-shadow: 0 20px 60px rgba(0, 150, 255, 0.3);
+    animation: borderGlow 3.5s ease infinite;
 }
 
 .iframe-container:hover {
-    border-color: rgba(0, 255, 200, 0.9);
-    box-shadow: 0 15px 40px rgba(0, 255, 200, 0.3);
+    border-color: rgba(0, 255, 200, 0.95);
+    box-shadow: 0 35px 100px rgba(0, 200, 255, 0.6), inset 0 0 30px rgba(0, 200, 255, 0.1);
+    transform: translateY(-10px) scale(1.02);
 }
 
 .iframe-container iframe {
@@ -387,47 +461,82 @@ nav a:hover {
 
 .tag {
     display: inline-block;
-    background: linear-gradient(135deg, #ff6b6b, #ff4757);
+    background: linear-gradient(135deg, #0055ff, #0088ff);
     color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    margin: 10px 5px 0 0;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    margin: 12px 5px 0 0;
     font-weight: bold;
+    border: 2px solid rgba(0, 200, 255, 0.5);
+    box-shadow: 0 5px 20px rgba(0, 136, 255, 0.3);
+    animation: borderGlow 3s ease infinite;
 }
 
 /* ========================================
    RESPONSIVE DESIGN
    ======================================== */
 
-@media (max-width: 768px) {
-    .hero-section {
-        padding: 40px 20px;
-    }
-
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-section p {
-        font-size: 1.2rem;
-    }
-
+@media (max-width: 1024px) {
     .content {
-        padding: 40px 20px;
+        padding: 60px 30px;
     }
 
     .content h2 {
-        font-size: 2rem;
+        font-size: 3rem;
+    }
+
+    .hero-section {
+        padding: 80px 30px;
+    }
+
+    .hero-section h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 50px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.8rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-section p {
+        font-size: 1.3rem;
+    }
+
+    .media-container {
+        gap: 30px;
+    }
+
+    .content {
+        padding: 50px 20px;
+    }
+
+    .content h2 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .content h3 {
+        font-size: 1.6rem;
+        margin-top: 40px;
     }
 
     .category-header {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        margin-top: 50px;
+        margin-bottom: 30px;
     }
 
     .product-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 30px;
+        margin: 40px 0;
     }
 
     nav {
@@ -435,16 +544,49 @@ nav a:hover {
     }
 
     nav a {
-        padding: 10px 20px;
-        font-size: 0.9rem;
+        padding: 12px 25px;
+        font-size: 0.95rem;
     }
 
     .contact-box,
     .info-box {
-        padding: 20px;
+        padding: 25px;
+        margin: 20px 0;
     }
 
     .iframe-container {
-        height: 300px;
+        height: 350px;
+    }
+
+    .product-card {
+        padding: 25px;
+    }
+
+    .product-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .product-card .price {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .content h2 {
+        font-size: 1.8rem;
+    }
+
+    nav a {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+
+    .iframe-container {
+        height: 280px;
+        max-width: 100%;
     }
 }

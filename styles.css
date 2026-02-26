@@ -377,6 +377,13 @@ nav a:hover {
     animation: slideInUp 1.2s ease;
 }
 
+.product-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.3s ease;
+}
+
 .product-card {
     background: linear-gradient(135deg, rgba(0, 70, 150, 0.2), rgba(0, 120, 200, 0.2));
     border: 3px solid rgba(0, 150, 255, 0.5);
@@ -390,7 +397,7 @@ nav a:hover {
     position: relative;
 }
 
-.product-card:hover {
+.product-card-link:hover .product-card {
     border-color: rgba(0, 255, 200, 0.95);
     box-shadow: 0 30px 90px rgba(0, 200, 255, 0.6), inset 0 0 40px rgba(0, 200, 255, 0.15);
     transform: translateY(-15px) scale(1.03);

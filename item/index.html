@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterloo 3D - Détails du Produit</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .item-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .item-images {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .item-image {
+            width: 100%;
+            border-radius: 25px;
+            border: 4px solid rgba(0, 150, 255, 0.5);
+            box-shadow: 0 25px 70px rgba(0, 150, 255, 0.3);
+            animation: borderGlow 3.5s ease infinite;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(0, 70, 150, 0.2), rgba(0, 120, 200, 0.2));
+            transition: all 0.5s ease;
+        }
+
+        .item-image:hover {
+            border-color: rgba(0, 255, 200, 0.95);
+            box-shadow: 0 40px 100px rgba(0, 200, 255, 0.6);
+        }
+
+        .item-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sketchfab-viewer {
+            width: 100%;
+            height: 500px;
+            border-radius: 25px;
+            border: 4px solid rgba(0, 150, 255, 0.5);
+            overflow: hidden;
+            animation: borderGlow 3.5s ease infinite;
+        }
+
+        .sketchfab-viewer iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .item-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .item-title {
+            animation: slideInUp 0.8s ease;
+        }
+
+        .item-title h1 {
+            font-size: 3.5rem;
+            color: #00d4ff;
+            font-weight: 900;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .item-subheader {
+            font-size: 1.5rem;
+            color: #00ffff;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: slideInUp 1s ease;
+        }
+
+        .item-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #0055ff, #0088ff);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border: 2px solid rgba(0, 200, 255, 0.5);
+            box-shadow: 0 5px 20px rgba(0, 136, 255, 0.3);
+            animation: borderGlow 3s ease infinite;
+            margin-bottom: 20px;
+        }
+
+        .item-description {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #b3e0ff;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(0, 70, 150, 0.2), rgba(0, 120, 200, 0.2));
+            border: 3px solid rgba(0, 150, 255, 0.5);
+            border-radius: 20px;
+            animation: slideInUp 1.2s ease, borderGlow 3.5s ease infinite;
+        }
+
+        .price-section {
+            background: linear-gradient(135deg, #0033cc, #0055ff);
+            padding: 30px;
+            border-radius: 25px;
+            border: 3px solid rgba(0, 200, 255, 0.6);
+            animation: slideInUp 1.4s ease, borderGlowIntense 3s ease infinite;
+            text-align: center;
+        }
+
+        .item-price {
+            font-size: 2.5rem;
+            color: #00ffff;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        }
+
+        .price-note {
+            font-size: 1rem;
+            color: #b3e0ff;
+        }
+
+        .details-section {
+            background: linear-gradient(135deg, rgba(0, 70, 150, 0.2), rgba(0, 120, 200, 0.2));
+            border: 3px solid rgba(0, 150, 255, 0.5);
+            border-radius: 20px;
+            padding: 25px;
+            animation: slideInUp 1.6s ease, borderGlow 3.5s ease infinite;
+        }
+
+        .details-section h3 {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 150, 255, 0.3);
+            color: #b3e0ff;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: #00ffff;
+        }
+
+        .packages-section {
+            background: linear-gradient(135deg, rgba(0, 70, 150, 0.2), rgba(0, 120, 200, 0.2));
+            border: 3px solid rgba(0, 150, 255, 0.5);
+            border-radius: 20px;
+            padding: 25px;
+            animation: slideInUp 1.8s ease, borderGlow 3.5s ease infinite;
+        }
+
+        .packages-section h3 {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .package-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(0, 100, 200, 0.2);
+            border: 2px solid rgba(0, 150, 255, 0.4);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .package-option:hover {
+            background: rgba(0, 150, 200, 0.3);
+            border-color: rgba(0, 200, 255, 0.7);
+            transform: translateX(10px);
+        }
+
+        .package-option:last-child {
+            margin-bottom: 0;
+        }
+
+        .package-label {
+            font-weight: 600;
+            color: #00ffff;
+            font-size: 1.1rem;
+        }
+
+        .package-price {
+            color: #00ffff;
+            font-weight: 900;
+            font-size: 1.3rem;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #0077ff, #00bfff);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(0, 200, 255, 0.4);
+            margin-bottom: 40px;
+            animation: float 3.5s ease-in-out infinite, borderGlow 3s ease infinite;
+        }
+
+        .back-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(0, 200, 255, 0.6);
+            background: linear-gradient(135deg, #00bfff, #0077ff);
+            border-color: rgba(0, 255, 200, 0.8);
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 60px 20px;
+            color: #ff6b6b;
+            font-size: 1.5rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #00d4ff;
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .item-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 30px;
+            }
+
+            .item-title h1 {
+                font-size: 2.5rem;
+            }
+
+            .sketchfab-viewer {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .item-container {
+                padding: 30px 20px;
+                gap: 30px;
+            }
+
+            .item-title h1 {
+                font-size: 2rem;
+            }
+
+            .item-subheader {
+                font-size: 1.2rem;
+            }
+
+            .item-price {
+                font-size: 2rem;
+            }
+
+            .price-section,
+            .details-section,
+            .packages-section {
+                padding: 20px;
+            }
+
+            .sketchfab-viewer {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html">🏠 Accueil</a>
+            <a href="../nous-contacter.html">📮 Contact & Livraison</a>
+            <a href="../offre.html">🎁 Nos Offres</a>
+        </nav>
+    </header>
+
+    <div id="content">
+        <div style="padding: 40px; text-align: center;">
+            <p class="loading">⏳ Chargement du produit...</p>
+        </div>
+    </div>
+
+    <script>
+        // Get the item ID from URL parameters
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Load and display item data
+        async function loadItem() {
+            const itemId = getUrlParameter('id');
+            const contentDiv = document.getElementById('content');
+
+            if (!itemId) {
+                contentDiv.innerHTML = '<div class="error-message">❌ Aucun produit spécifié. <br><a href="../offre.html" class="back-button">Retour aux Offres</a></div>';
+                return;
+            }
+
+            try {
+                // Fetch the items JSON file
+                const response = await fetch('../item/items.json');
+                const items = await response.json();
+
+                // Get the specific item
+                const item = items[itemId];
+
+                if (!item) {
+                    contentDiv.innerHTML = '<div class="error-message">❌ Produit non trouvé. <br><a href="../offre.html" class="back-button">Retour aux Offres</a></div>';
+                    return;
+                }
+
+                // Build the HTML content
+                let html = '<a href="../offre.html" class="back-button">← Retour aux Offres</a>';
+                html += '<div class="item-container">';
+
+                // Images section
+                html += '<div class="item-images">';
+
+                // Display product images
+                if (item.images && item.images.length > 0) {
+                    item.images.forEach(img => {
+                        html += `<div class="item-image"><img src="../${img}" alt="${item.header}"></div>`;
+                    });
+                }
+
+                // Display Sketchfab 3D model if available
+                if (item.sketchfab_id) {
+                    html += `<div class="sketchfab-viewer">
+                        <iframe title="${item.header}" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" src="https://sketchfab.com/models/${item.sketchfab_id}/embed?autostart=1&transparent=1"></iframe>
+                    </div>`;
+                }
+
+                html += '</div>';
+
+                // Info section
+                html += '<div class="item-info">';
+
+                // Title and category
+                html += '<div class="item-title">';
+                html += `<h1>${item.header}</h1>`;
+                html += `</div>`;
+
+                if (item.subheader) {
+                    html += `<div class="item-subheader">${item.subheader}</div>`;
+                }
+
+                if (item.category) {
+                    html += `<div class="item-category">${item.category}</div>`;
+                }
+
+                // Description
+                if (item.description) {
+                    html += `<div class="item-description">${item.description}</div>`;
+                }
+
+                // Price section
+                html += '<div class="price-section">';
+                html += `<div class="item-price">À partir de ${item.price.toFixed(2)}$</div>`;
+                html += '<div class="price-note">Prix selon le paquet sélectionné</div>';
+                html += '</div>';
+
+                // Details section
+                if (item.details && Object.keys(item.details).length > 0) {
+                    html += '<div class="details-section">';
+                    html += '<h3>📋 Détails du Produit</h3>';
+                    for (const [key, value] of Object.entries(item.details)) {
+                        const displayKey = key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ');
+                        const displayValue = typeof value === 'boolean' ? (value ? '✅ Oui' : '❌ Non') : value;
+                        html += `<div class="detail-item"><span class="detail-label">${displayKey}:</span> <span>${displayValue}</span></div>`;
+                    }
+                    html += '</div>';
+                }
+
+                // Packages section
+                if (item.packages && item.packages.length > 0) {
+                    html += '<div class="packages-section">';
+                    html += '<h3>📦 Paquets Disponibles</h3>';
+                    item.packages.forEach(pkg => {
+                        const label = pkg.label || `Quantité: ${pkg.quantity}`;
+                        html += `<div class="package-option">
+                            <span class="package-label">${label}</span>
+                            <span class="package-price">${pkg.price.toFixed(2)}$</span>
+                        </div>`;
+                    });
+                    html += '<div style="margin-top: 25px; padding: 20px; background: rgba(0, 100, 200, 0.2); border-radius: 15px; text-align: center; border: 2px solid rgba(0, 150, 255, 0.4);">';
+                    html += '<p style="color: #b3e0ff; margin: 0;">Pour commander, contactez-nous à <a href="mailto:waterloo3d@hotmail.com" class="email-link">waterloo3d@hotmail.com</a></p>';
+                    html += '</div>';
+                    html += '</div>';
+                }
+
+                html += '</div></div>';
+
+                contentDiv.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error loading item:', error);
+                contentDiv.innerHTML = '<div class="error-message">❌ Erreur lors du chargement du produit. <br><a href="../offre.html" class="back-button">Retour aux Offres</a></div>';
+            }
+        }
+
+        // Load item when page loads
+        window.addEventListener('load', loadItem);
+    </script>
+</body>
+</html>

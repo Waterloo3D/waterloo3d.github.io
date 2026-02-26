@@ -1,0 +1,139 @@
+{
+  "cache-pot": {
+    "header": "Cache-Pot 🌱",
+    "subheader": "Élégant et pratique pour sublimer vos plantes",
+    "price": 12.00,
+    "category": "Décorations pour la Maison",
+    "description": "Un cache-pot magnifiquement conçu en impression 3D, parfait pour ajouter une touche de style à votre intérieur. Idéal pour mettre en valeur vos plantes favorites avec élégance.",
+    "images": [],
+    "sketchfab_id": "5d259b75e21f4744b5caecfb8fb21ad7",
+    "details": {
+      "dimensions": "Taille moyenne (à personnaliser)",
+      "matériau": "Plastique PLA ou autre matériau 3D",
+      "couleurs_disponibles": ["Blanc", "Noir", "Bleu", "Vert"],
+      "personnalisation": true
+    },
+    "packages": [
+      {
+        "quantity": 1,
+        "price": 12.00
+      }
+    ]
+  },
+  "boites-emboitables": {
+    "header": "Boîtes Emboîtables 📦",
+    "subheader": "Rangement intelligent et modulable",
+    "price": 12.00,
+    "category": "Rangement",
+    "description": "Des boîtes de rangement pratiques et élégantes qui s'emboîtent parfaitement les unes dans les autres. Parfait pour organiser votre espace avec style!",
+    "images": [],
+    "sketchfab_id": "a2be981ce94d42cd83ba0e6a637f8ae8",
+    "details": {
+      "dimensions": "Différentes tailles disponibles",
+      "matériau": "Plastique PLA ou autre matériau 3D",
+      "emboîtables": true,
+      "personnalisation": "Logos et textes possibles"
+    },
+    "packages": [
+      {
+        "quantity": 1,
+        "price": 12.00,
+        "label": "Paquet de 1"
+      },
+      {
+        "quantity": 2,
+        "price": 20.00,
+        "label": "Paquet de 2"
+      },
+      {
+        "quantity": 4,
+        "price": 36.00,
+        "label": "Paquet de 4"
+      }
+    ]
+  },
+  "etiquettes": {
+    "header": "Étiquettes Personnalisées 🏷️",
+    "subheader": "Texte à votre choix",
+    "price": 0.50,
+    "category": "Accessoires",
+    "description": "Personnalisez vos objets avec des étiquettes uniques imprimées en 3D. Parfait pour identifier vos affaires ou créer des étiquettes décoratives.",
+    "images": ["IMG_1182.PNG"],
+    "details": {
+      "dimensions": "Petites et légères",
+      "matériau": "Plastique PLA",
+      "personnalisation": "Texte entièrement personnalisable"
+    },
+    "packages": [
+      {
+        "quantity": 1,
+        "price": 0.50,
+        "label": "Paquet de 1"
+      },
+      {
+        "quantity": 4,
+        "price": 1.50,
+        "label": "Paquet de 4"
+      },
+      {
+        "quantity": 12,
+        "price": 4.50,
+        "label": "Paquet de 12"
+      }
+    ]
+  },
+  "signets": {
+    "header": "Signets Assortis 📖",
+    "subheader": "4 petits + 4 grands pour marquer vos pages",
+    "price": 0.75,
+    "category": "Accessoires",
+    "description": "Ensemble de 8 signets colorés et fonctionnels. Idéal pour les amateurs de lecture qui veulent ajouter une touche créative à leurs livres.",
+    "images": [],
+    "sketchfab_id": "0ab2039007fa4b219f3efcd54bde3d9f",
+    "details": {
+      "nombre": "8 signets (4 petits + 4 grands)",
+      "matériau": "Plastique PLA",
+      "couleurs": "Assortis",
+      "personnalisation": true
+    },
+    "packages": [
+      {
+        "quantity": 1,
+        "price": 0.75,
+        "label": "Paquet de 8"
+      }
+    ]
+  },
+  "petit-livre-porte-cles": {
+    "header": "Petit Livre Porte-Clés 📚",
+    "subheader": "Accessoire adorable pour votre trousseau",
+    "price": 1.10,
+    "category": "Accessoires",
+    "description": "Un accessoire miniature unique! Petit livre imprimé en 3D parfait pour les porte-clés. Collectionnez-les dans différentes couleurs!",
+    "images": [],
+    "sketchfab_id": "985a37e962304c07b2ba65c4a0e6dbad",
+    "details": {
+      "dimensions": "Mini (parfait pour porte-clés)",
+      "matériau": "Plastique PLA",
+      "poids": "Très léger",
+      "personnalisation": "Texte sur la couverture possible"
+    },
+    "packages": [
+      {
+        "quantity": 1,
+        "price": 1.10,
+        "label": "Paquet de 1"
+      },
+      {
+        "quantity": 2,
+        "price": 2.00,
+        "label": "Paquet de 2"
+      },
+      {
+        "quantity": 4,
+        "price": 3.50,
+        "label": "Paquet de 4"
+      }
+    ]
+  }
+}
